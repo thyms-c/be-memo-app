@@ -1,0 +1,12 @@
+[hotreload]
+# Enable hot reload
+enable = true
+
+# Specify the delay in milliseconds before reloading after a change
+delay = 1000
+
+# Specify whether to show notifications when reloading
+notify = true
+
+# Specify the command to restart the server
+cmd = "killall -SIGUSR2 {{binary}}"
