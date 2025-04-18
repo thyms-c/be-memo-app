@@ -1,0 +1,57 @@
+[
+    {
+        "id": "27a47de8ee796a70",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9c359081161fb6e6",
+        "type": "http in",
+        "z": "27a47de8ee796a70",
+        "name": "",
+        "url": "/auth/v1/login",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "6dd7131a6f92068f"
+            ]
+        ]
+    },
+    {
+        "id": "6dd7131a6f92068f",
+        "type": "function",
+        "z": "27a47de8ee796a70",
+        "name": "auth",
+        "func": "const { username, password } = msg.payload;\n\nif (!username || !password) {\n    msg.statusCode = 400;\n    msg.payload = { error: \"Email and password are required.\" };\n    return msg;\n}\n\nconst mockPassword = \"12345678\"\n\nif (username === \"admin1\" && password === mockPassword ) {\n    msg.payload = { token: \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4xIiwiZW1haWwiOiJhZG1pbi5lbWFpbEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4ifQ.X5Kho9_5xtZSxEAm0r2I1eGv3aneHVGTXC9o0VM9xpw\" };\n} else if (username === \"user1\" && password === mockPassword) {\n    msg.payload = { token: \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjEiLCJlbWFpbCI6InVzZXIuZW1haWxAZ21haWwuY29tIiwicm9sZSI6IlVTRVIifQ.4MSiXYA9kuxpuT4lxWEkfntO3bmlSEYveg3yHcSZ9rU\" };\n} else {\n    msg.statusCode = 401;\n    msg.payload = { error: \"Invalid credentials.\" };\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 320,
+        "wires": [
+            [
+                "54f0b856722a5e76"
+            ]
+        ]
+    },
+    {
+        "id": "54f0b856722a5e76",
+        "type": "http response",
+        "z": "27a47de8ee796a70",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 320,
+        "wires": []
+    }
+]
