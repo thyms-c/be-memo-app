@@ -1,5 +1,7 @@
 # 🧠 Memo App Backend
 
+This is the backend service for the Memo Web App, using **Node-RED** for authentication flows and **MongoDB** to store memo data. It is containerized with Docker Compose for local setup.
+
 ## 🛠️ Getting Started
 
 ### 1. Clone the repository
