@@ -24,9 +24,29 @@ cp .env.example .env
 ### 4. Run with Docker Compose
 
 ```bash
-docker compose up
+docker compose up -d
 ```
 ---
+
+## 🖍️ How to import Node-Red Flow
+
+### 1. open Node-Red on 
+
+```bash
+http://localhost:1880
+```
+
+### 2. import flow from file
+```bash
+node-red/auth_flow.json
+```
+
+### 3. Deploy flow 
+```bash
+click on 'Deploy' button
+```
+---
+
 
 ## 🔐 Roles & Permissions
 
